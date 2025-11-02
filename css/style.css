@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+  /* Primary Colors */
+  --color-navy: #1E2A38;     /* Deep Navy: Trust, reflection, depth */
+  --color-gold: #E4C77F;     /* Soft Gold: Warmth, light, faith */
+  --color-white: #F9F9F6;    /* Ivory White: Clean background, purity */
+  
+  /* Secondary/Accent Colors */
+  --color-sky-blue: #A9C8E3; /* Muted Sky Blue: Calmness and hope */
+  --color-olive-green: #91A28C; /* Accent: Olive Green for growth and renewal */
+}
+
+header{
+    background-color: var(--color-olive-green);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr .5fr;
+    margin: 3%;
+    border-radius: 15px;
+}
+
+body{
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin: 0%;
+    padding: 0;
+    max-height: 2000px;
+    background-color: var(--color-white);
+
+}
+img{
+    max-width: 100%;
+    height: auto;
+
+}   
+h1{
+    font-size: 7rem;
+    margin-top:auto;
+    margin-bottom: auto;
+    color: var(--color-white);
+}
+h2{
+    font-size: 2.5rem;
+    padding: 12px;
+    color: var(--color-);
+    margin: 3%;
+}
+h3{
+    font-size: 2rem;
+    padding: 12px;
+    color: var(--color-navy);
+    margin: 3%;
+}
+p{
+    font-size: 1.5rem;
+    padding: 12px;
+    color: var(--color-navy);
+}
+ul{
+    font-size: 1.5rem;
+    padding: 12px;
+    color: var(--color-navy);
+    margin: 3%;
+    list-style-type: disc;
+}
+.about{
+    background-color: #A9C8E3;
+    margin: 3%;
+    border-radius: 15px;
+    padding: 3%;
+    color: var(--color-navy);
+}
