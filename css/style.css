@@ -72,3 +72,215 @@ ul{
     padding: 3%;
     color: var(--color-navy);
 }
+
+/* ================== Waitlist Form Styling ================== */
+
+/* Modal wrapper */
+.waitlist-modal {
+  position: fixed;
+  inset: 0;
+  display: none; /* hidden by default, toggled by JS */
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  pointer-events: none;
+}
+
+/* Show modal */
+.waitlist-modal.open {
+  display: flex;
+  pointer-events: auto;
+}
+
+/* Backdrop */
+.waitlist-backdrop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5,10,25,0.45), rgba(10,20,35,0.5));
+  backdrop-filter: blur(6px) saturate(1.05);
+  -webkit-backdrop-filter: blur(6px) saturate(1.05);
+  opacity: 0;
+  animation: backdrop-fade .28s ease forwards;
+}
+
+/* Modal panel / card */
+.waitlist-panel {
+  position: relative;
+  width: min(720px, calc(100% - 40px));
+  max-height: 92vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  padding: 24px;
+  margin: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,255,0.96));
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 18px 50px rgba(8, 16, 40, 0.55), 0 6px 18px rgba(8, 16, 40, 0.35);
+  transform-origin: center;
+  transform: translateY(6px) scale(0.98);
+  animation: panel-pop .42s cubic-bezier(.16,.8,.32,1) forwards;
+  pointer-events: auto;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* Close button */
+.waitlist-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  color: #223;
+  opacity: 0.7;
+  transition: transform 0.18s ease, opacity 0.12s ease;
+  border-radius: 8px;
+  padding: 6px;
+}
+.waitlist-close:hover {
+  transform: rotate(90deg) scale(1.05);
+  opacity: 1;
+}
+
+/* Form container */
+.waitlist-form {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  color: var(--color-navy);
+}
+
+/* Headings & text */
+.waitlist-form h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--color-navy);
+  letter-spacing: -0.02em;
+}
+
+.waitlist-form p {
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+  color: var(--color-navy);
+}
+
+/* Labels */
+.waitlist-form label {
+  font-size: 0.9rem;
+  color: var(--color-navy);
+  display: block;
+  margin-top: 6px;
+}
+
+/* Inputs, textarea, select */
+.waitlist-form input[type="text"],
+.waitlist-form input[type="email"],
+.waitlist-form input[type="tel"],
+.waitlist-form select,
+.waitlist-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(16,24,40,0.09);
+  background: linear-gradient(180deg, #fff, #fbfdff);
+  box-shadow: 0 6px 18px rgba(12,18,30,0.05) inset;
+  outline: none;
+  font-size: 0.96rem;
+  transition: box-shadow 0.16s ease, transform 0.12s ease, border-color 0.12s ease;
+  resize: vertical;
+  min-height: 40px;
+}
+
+.waitlist-form textarea {
+  min-height: 92px;
+  padding-top: 10px;
+}
+
+/* Focus state */
+.waitlist-form input:focus,
+.waitlist-form select:focus,
+.waitlist-form textarea:focus {
+  border-color: rgba(79,70,229,0.95);
+  box-shadow: 0 6px 30px rgba(79,70,229,0.12);
+  transform: translateY(-2px);
+}
+
+/* Checkbox container */
+.checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 6px;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+  accent-color: #4f46e5; /* modern browsers */
+}
+
+/* Call-to-action button */
+.waitlist-form .cta {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  color: white;
+  background-image: linear-gradient(90deg, #7c3aed 0%, #06b6d4 100%);
+  box-shadow: 0 8px 30px rgba(99,102,241,0.18), 0 2px 6px rgba(6,182,212,0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+.waitlist-form .cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(99,102,241,0.22);
+}
+
+.waitlist-form .cta:active {
+  transform: translateY(-1px) scale(0.998);
+}
+
+/* Floating accent for panel */
+.waitlist-panel::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: -20px;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: radial-gradient(circle at 20% 30%, rgba(99,102,241,0.28), transparent 30%),
+              linear-gradient(135deg, rgba(6,182,212,0.10), rgba(125,211,252,0.02));
+  filter: blur(8px);
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes panel-pop {
+  0% { opacity: 0; transform: translateY(18px) scale(0.96); }
+  60% { opacity: 1; transform: translateY(-6px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes backdrop-fade {
+  to { opacity: 1; }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 520px) {
+  .waitlist-panel {
+    padding: 18px;
+    border-radius: 14px;
+  }
+  .waitlist-form h2 {
+    font-size: 1.25rem;
+  }
+}

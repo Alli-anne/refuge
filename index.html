@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="index.js"></script>
 </head>
 <body>
     <header>
@@ -37,9 +36,70 @@ Refuge exists to help Christians grow closer to God each day by making scripture
             <h3>The Team</h3>
         </section>
 
+       <!-- Trigger (wherever you want to open the modal) -->
+<!-- Trigger button -->
+<button id="open-waitlist" class="cta" style="max-width: 220px; margin: 2rem auto; display: block;">
+  Join the Waitlist
+</button>
+
+<!-- Waitlist Modal -->
+<div class="waitlist-modal" aria-hidden="true" role="dialog" aria-labelledby="waitlist-title">
+  <!-- Backdrop -->
+  <div class="waitlist-backdrop" data-close></div>
+
+  <!-- Modal Panel -->
+  <div class="waitlist-panel" role="document">
+    <!-- Close Button -->
+    <button class="waitlist-close" aria-label="Close" data-close>&times;</button>
+
+    <!-- Waitlist Form -->
+    <form class="waitlist-form" action="/join-waitlist" method="POST" novalidate>
+      <h2 id="waitlist-title">Join the Waitlist</h2>
+      <p>Be the first to know when we launch!</p>
+
+      <!-- Name -->
+      <label for="name">Full Name*</label>
+      <input type="text" id="name" name="name" required placeholder="Your name">
+
+      <!-- Email -->
+      <label for="email">Email Address*</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com">
+
+      <!-- Phone -->
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Optional">
+
+      <!-- Source -->
+      <label for="source">How did you hear about us?</label>
+      <select id="source" name="source">
+        <option value="">Select one</option>
+        <option value="social_media">Social Media</option>
+        <option value="friend">Friend or Colleague</option>
+        <option value="ad">Online Ad</option>
+        <option value="other">Other</option>
+      </select>
+
+      <!-- Reason -->
+      <label for="reason">Why are you interested in our app?</label>
+      <textarea id="reason" name="reason" placeholder="Tell us why..."></textarea>
+
+      <!-- Consent -->
+      <div class="checkbox">
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent">I agree to receive updates and notifications about the launch.</label>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="cta">Join the Waitlist</button>
+    </form>
+  </div>
+</div>
+
+
     </main>
     <footer>
 
     </footer>
+     <script src="js/index.js"></script>
 </body>
 </html>
